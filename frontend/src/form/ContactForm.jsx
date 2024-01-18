@@ -17,7 +17,10 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(`${serverUrl}/send_mail`, formData);
+      const { data } = await axios.post(
+        `http://localhost:8080/api/v1/send_mail`,
+        formData
+      );
       if (data?.status) {
         toast.success(data.message);
       } else {
