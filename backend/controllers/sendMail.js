@@ -19,18 +19,33 @@ const sendMail = async (req, res) => {
       },
     });
 
-    const info = await transporter.sendMail({
-      from: `Portfolio Mail 😎 ${email}`, // sender address
-      to: "anandadarsh2511@gmail.com", // list of receivers
+    const infoMyself = await transporter.sendMail({
+      from: '"Portfolio 👻" anandadarsh2511@gmail.com', // sender address
+      to: `anandadarsh2511@gmail.com`, // list of receivers
       subject: "Contact through Portfolio", // Subject line
-      text: `Hello Adarsh, ${name} wants to contact you.`, // plain text body
-      html: `<p>${message}</p>`, // html body
+      text: `${name} Wants to reach you,\n\n Email: ${email} \n\n Message: ${message}`, // plain text body
+      html: `
+    <p><b>${name}</b> wants to reach you,</p>
+    <p>Enail: ${email}</p>
+    <p>Message: ${message}</p>
+  `,
+    });
+
+    const info = await transporter.sendMail({
+      from: '"Portfolio 👻" anandadarsh2511@gmail.com', // sender address
+      to: `${email}`, // list of receivers
+      subject: "Contact through Portfolio", // Subject line
+      text: `Hello ${name},\n\nThank you for reaching out to me. I appreciate your interest. This is an automated response, and I will get back to you as soon as possible.\n\nBest regards,\nAdarsh Anand`, // plain text body
+      html: `
+    <p>Hello <b>${name}</b>,</p>
+    <p>Thank you for reaching out to me. I appreciate your interest. This is an automated response, and I will get back to you as soon as possible.</p>
+    <p>Best regards,<br>Adarsh Anand</p>
+  `,
     });
 
     return res.status(200).json({
       status: true,
       message: "Your message mailed successfully",
-      info,
     });
   } catch (error) {
     console.log(error);

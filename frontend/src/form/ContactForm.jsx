@@ -23,6 +23,7 @@ const ContactForm = () => {
       );
       if (data?.status) {
         toast.success(data.message);
+        setFormData({ name: "", email: "", message: "" });
       } else {
         toast.error(data.message);
       }
@@ -46,6 +47,7 @@ const ContactForm = () => {
               type="text"
               id="name"
               name="name"
+              placeholder="your name"
               value={formData.name}
               onChange={handleChange}
               className="mt-1 p-2 w-full border rounded-md"
@@ -63,6 +65,7 @@ const ContactForm = () => {
               type="email"
               id="email"
               name="email"
+              placeholder="your email Id"
               value={formData.email}
               onChange={handleChange}
               className="mt-1 p-2 w-full border rounded-md"
@@ -79,6 +82,7 @@ const ContactForm = () => {
             <textarea
               id="message"
               name="message"
+              placeholder="write your opinions..."
               value={formData.message}
               onChange={handleChange}
               className="mt-1 p-2 w-full border rounded-md"
