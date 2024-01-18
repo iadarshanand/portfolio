@@ -1,3 +1,5 @@
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Sidebar from "./components/Sidebar";
 import About from "./pages/About";
@@ -11,17 +13,20 @@ import Work from "./pages/Work";
 
 function App() {
   return (
-    <div className="">
-      <Sidebar />
-      <Home />
-      <About />
-      <TechStack />
-      <Project />
-      <Education />
-      <Work />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <div className="">
+        <ToastContainer />
+        <Sidebar />
+        <Home />
+        <About />
+        <TechStack />
+        <Project />
+        <Education />
+        <Work />
+        <Contact />
+        <Footer />
+      </div>
+    </>
   );
 }
 

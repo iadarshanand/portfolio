@@ -1,6 +1,7 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import MobileNav from "../components/MobileNav";
+import Resume from "../assets/Adarsh_Anand1.pdf";
 
 const Home = () => {
   return (
@@ -34,7 +35,11 @@ const Home = () => {
           >
             Hire Me
           </a>
-          <a className="px-4 py-1 bg-orange-600 rounded-xl font-semibold">
+          <a
+            href={Resume}
+            download="Adarsh_Anand.pdf"
+            className="px-4 py-1 bg-orange-600 rounded-xl font-semibold"
+          >
             My Resume
           </a>
         </div>
