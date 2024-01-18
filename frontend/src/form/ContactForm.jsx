@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { serverUrl } from "../../config";
-import { Bounce, ToastContainer, toast } from "react-toastify";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +18,7 @@ const ContactForm = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/send_mail`,
+        `${serverUrl}/api/v1/send_mail`,
         formData
       );
       if (data?.status) {

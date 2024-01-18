@@ -1,1 +1,1 @@
-export const serverUrl = import.meta.env.VITE_SERVER_URL;
+export const serverUrl = "https://portfolio-backend-virid-six.vercel.app";
